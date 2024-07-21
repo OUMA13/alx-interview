@@ -1,13 +1,21 @@
 #!/usr/bin/python3
+""" Module to test the minOperations function """
 
 
-def minOperations(n: int) -> int:
-    """calculates the fewest number of operations"""
-    process = 2
-    op = 0
+def minOperations(n):
+    """ Method to calculate the fewest number of operations needed
+        to result in exactly n H characters in the file """
+
+    if n <= 1:
+        return 0
+
+    opr = 0
+    factor = 2
+
     while n > 1:
-        while n % process == 0:
-            op = op + process
-            n /= process
-        process += 1
-    return op
+        while n % factor == 0:
+            opr += factor
+            n //= factor
+        factor += 1
+
+    return opr
